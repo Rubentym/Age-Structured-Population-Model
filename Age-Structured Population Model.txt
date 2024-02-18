@@ -1,0 +1,11 @@
+def age_structured_population(initial_population, survival_rates):
+    population = [initial_population]
+    for i in range(1, len(survival_rates)):
+        population.append(population[i - 1] * survival_rates[i - 1])
+    return population
+
+# Example usage:
+initial_population = 1000  # Initial population size
+survival_rates = [0.8, 0.6, 0.4, 0.2]  # Survival rates by age
+population_by_age = age_structured_population(initial_population, survival_rates)
+print("Population by age group:", population_by_age)
